@@ -50,7 +50,7 @@ for file in os.listdir('static/Perseverance'):
    if count_Perseverance == 1:
       break
 
-# time.sleep(1)
+time.sleep(1)
 
 # ******************************************************* delite small files **********************************************************#
 for item in os.listdir('static/Curiosity'):

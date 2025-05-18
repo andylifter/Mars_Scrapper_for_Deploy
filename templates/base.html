@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+    <link type="text/css" href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>   
+    <title>{{ title }}</title> 
+</head>
+
+<body>
+    <header class="header">
+        <button class="nav-btn">&#9776;</button>
+        <a href="#" class="logo">{{ title }}</a>
+
+        <nav class="navbar">
+            <a id="home" href="curiosity">curiosity</a>
+            <a id="home" href="opportunity">opportunity</a>
+            <a id="home" href="perseverance">perseverance</a>
+            <a id="home" href="spirit">spirit</a>
+            <a id="home" href="/">home</a>
+        </nav>
+    </header>  
+    
+    {% block content %} {% endblock %}
+
+</body>
+</html>

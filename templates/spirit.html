@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spirit</title>
-    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
-    <link type="text/css" href="{{ url_for('static', filename='spirit.css') }}" rel="stylesheet" />
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</head>
+{% extends "base.html" %}
 
-<body>
-    <header class="header">
-        <button class="nav-btn">&#9776;</button>
-        <a href="#" class="logo">Spirit</a>
-
-        <nav class="navbar">
-            <a id="home" href="curiosity">curiosity</a>
-            <a id="home" href="opportunity">opportunity</a>
-            <a id="home" href="perseverance">perseverance</a>
-            <a id="home" href="spirit">spirit</a>
-            <a id="home" href="/">home</a>
-        </nav>
-    </header>
-
+{% block content %}
+{{ super() }}
     <div class="photos" id="photos">
         {% for i in photos_spirit %}
         <img id="img_id" src="{{ url_for('static', filename=i) }}"alt="Spirit">
@@ -32,7 +11,5 @@
     <div class="about_rovers">
         <a href="https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/">More info about Spirit and Opportunity</a>
     </div>
+{% endblock %}
     
-    
-</body>
-</html>

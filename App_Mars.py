@@ -1,12 +1,12 @@
 from flask import Flask, render_template
-from NASA_api_key import API_KEY
+from get_images import get_images_Curiosity, get_images_Perseverance
+import threading
 import os
 
-'''**********************************************************************************************************************************************'''
+
 app = Flask(__name__)
 
 '''**********************************************************************************************************************************************'''
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -35,11 +35,16 @@ def spirit():
     photos_spirit = ['Spirit/' + image for image in sorted(photos_spirit)]
     return render_template('spirit.html', photos_spirit=photos_spirit)
 
+
 '''**********************************************************************************************************************************************'''
+Perseverance_thread = threading.Thread(target=get_images_Perseverance)
+Curiosity_thread = threading.Thread(target=get_images_Curiosity)
+Perseverance_thread.start()
+Curiosity_thread.start()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 
 # set FLASK_APP=app.py

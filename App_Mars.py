@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from get_images import get_images_Curiosity, get_images_Perseverance
+from get_images import get_images_Rover
 import threading
 import os
 
@@ -37,10 +37,8 @@ def spirit():
 
 
 '''**********************************************************************************************************************************************'''
-Perseverance_thread = threading.Thread(target=get_images_Perseverance)
-Curiosity_thread = threading.Thread(target=get_images_Curiosity)
-Perseverance_thread.start()
-Curiosity_thread.start()
+images_thread = threading.Thread(target=get_images_Rover)
+images_thread.start()
 
 
 if __name__ == '__main__':
